@@ -1,0 +1,40 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #00AAFF, #00FF6C);
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 200px;
+  
+}
+
+.row {
+  display: flex;
+}
+
+.button {
+  display: flex;
+  border: solid 1px white;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  font-size: 2rem;
+  background-color: rgba(255, 255, 255, .75);
+}
+
+.span-two {
+  flex-grow: 2;
+}
+
+.calc_input {
+  width: 100%;
+  background-color: grey;
+  height: 50px;
+}
