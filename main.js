@@ -1,6 +1,4 @@
-// let firstNumber = a
-// let secondNumber = b
-// let sumOperator =
+const display = document.querySelector('.calc_input')
 
 let a = 253
 let b = 12.5
