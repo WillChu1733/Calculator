@@ -1,4 +1,10 @@
-const display = document.querySelector('.calc_input')
+const buttons = document.querySelectorAll('.button')
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    console.log(button.textContent)
+  })
+})
 
 let a = 253
 let b = 12.5
@@ -15,8 +21,3 @@ const divide = (a, b) => a / b
 function operate(a, b, operator) {
   return a + operator + b
 }
-
-console.log(`Add ${a} + ${b} = ` + add(a, b))
-console.log(`Subtract ${a} - ${b} = ` + subtract(a, b))
-console.log(`multiply ${a} * ${b} = ` + multiple(a, b))
-console.log(`divide ${a} / ${b} = ` + divide(a, b))
