@@ -1,10 +1,19 @@
 const buttons = document.querySelectorAll('.button')
+const display = document.querySelector('.calc_input')
+const clear = document.querySelector('.clear')
+const equals = document.querySelector('.equals')
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    console.log(button.textContent)
+    display.innerHTML += button.textContent
   })
 })
+
+const clearScreen = clear.addEventListener('click', () => {
+  display.innerHTML = ''
+})
+
+// let equaloperand = equals.
 
 let a = 253
 let b = 12.5

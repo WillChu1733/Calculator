@@ -6,6 +6,10 @@ body {
   background: linear-gradient(to right, #00AAFF, #00FF6C);
   padding: 0;
   margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  
 }
 
 .container {
@@ -34,7 +38,7 @@ body {
   outline: none;
   font-size: 1rem;
   background-color: rgba(255, 255, 255, .75);
-  
+  border-radius: 2px;
 }
 
 .span-two {
@@ -42,6 +46,9 @@ body {
 }
 
 .calc_input {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
   width: 100%;
   background-color: grey;
   height: 50px;
