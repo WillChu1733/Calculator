@@ -25,7 +25,7 @@ function handleNumber(num) {
 operators.forEach((operate) => {
   operate.addEventListener('click', (e) => {
     handleOperator(e.target.textContent)
-    previousScreen.textContent = previousValue + '' + operator
+    previousScreen.textContent = previousValue + ''
     currentScreen.textContent = currentValue
   })
 })
@@ -34,12 +34,15 @@ function handleOperator(operate) {
   operator = operate
   previousValue = currentValue
   currentValue = ''
+  console.log(operator)
 }
 
-const clearScreen = clear.addEventListener('click', () => {
+clear.addEventListener('click', () => {
   currentScreen.textContent = ''
-  // operator = ''
+  previousScreen.textContent = ''
+  operator = ''
   currentValue = ''
+  previousValue = ''
 })
 
 const equalsOperator = equals.addEventListener('click', () => {
