@@ -25,7 +25,6 @@ body {
 
 .row {
   display: flex;
-  
 }
 
 .button {
@@ -45,11 +44,28 @@ body {
   flex-grow: 2;
 }
 
-.calc_input {
+.screen {
   display: flex;
   justify-content: flex-end;
-  padding: 10px;
+  padding: 1px;
   width: 100%;
   background-color: grey;
   height: 50px;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.previous_input {
+  font-size: 20px;
+}
+.current_input {
+  font-size: 25px;
+}
+
+.first_row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
 }

@@ -1,23 +1,49 @@
 const buttons = document.querySelectorAll('.button')
-const display = document.querySelector('.calc_input')
+const operators = document.querySelectorAll('.operator')
+
+const display = document.querySelector('.screen')
 const clear = document.querySelector('.clear')
 const equals = document.querySelector('.equals')
+const previousScreen = document.querySelector('.previous_input')
+const currentScreen = document.querySelector('.current_input')
+
+let currentValue = ''
+let previousValue = ''
+let operator = ''
 
 buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-    display.innerHTML += button.textContent
+  button.addEventListener('click', (e) => {
+    handleNumber(e.target.textContent)
+    currentScreen.textContent = currentValue
   })
 })
 
+function handleNumber(num) {
+  currentValue += num
+}
+
 const clearScreen = clear.addEventListener('click', () => {
-  display.innerHTML = ''
+  currentScreen.innerText = ''
+  // operator = ''
+  currentValue = ''
 })
 
-// let equaloperand = equals.
+const equalsOperator = equals.addEventListener('click', () => {
+  calculate()
+})
 
-let a = 253
-let b = 12.5
-let operator = '+'
+operators.forEach((operate) => {
+  operate.addEventListener('click', (e) => {
+    handleOperator(e.target.textContent)
+    display.textContent = value
+  })
+})
+
+function handleOperator(operate) {
+  operator = operate
+}
+
+function calculate() {}
 
 const add = (a, b) => a + b
 
@@ -27,6 +53,6 @@ const multiple = (a, b) => a * b
 
 const divide = (a, b) => a / b
 
-function operate(a, b, operator) {
-  return a + operator + b
-}
+// function operate(a, b, operator) {
+//   return a + operator + b
+// }
