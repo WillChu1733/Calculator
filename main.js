@@ -1,7 +1,6 @@
 const buttons = document.querySelectorAll('.button')
 const operators = document.querySelectorAll('.operator')
 
-const display = document.querySelector('.screen')
 const clear = document.querySelector('.clear')
 const equals = document.querySelector('.equals')
 const previousScreen = document.querySelector('.previous_input')
@@ -25,16 +24,19 @@ function handleNumber(num) {
 operators.forEach((operate) => {
   operate.addEventListener('click', (e) => {
     handleOperator(e.target.textContent)
-    previousScreen.textContent = previousValue + ''
+    previousScreen.textContent = previousValue
     currentScreen.textContent = currentValue
   })
 })
 
 function handleOperator(operate) {
+  if (currentValue === '') return
+  if (previousValue !== '') {
+    calculate()
+  }
   operator = operate
   previousValue = currentValue
   currentValue = ''
-  console.log(operator)
 }
 
 clear.addEventListener('click', () => {
@@ -45,11 +47,44 @@ clear.addEventListener('click', () => {
   previousValue = ''
 })
 
-const equalsOperator = equals.addEventListener('click', () => {
+equals.addEventListener('click', () => {
   calculate()
+  previousScreen.textContent = ''
+  currentScreen.textContent = previousValue
 })
 
-function calculate() {}
+function calculate() {
+  if (previousValue === '' || currentValue === '' || operator === '') return
+
+  previousValue = parseFloat(previousValue)
+  currentValue = parseFloat(currentValue)
+
+  let result
+  switch (operator) {
+    case '+':
+      result = add(previousValue, currentValue)
+      break
+    case '-':
+      result = subtract(previousValue, currentValue)
+      break
+    case '*':
+      result = multiple(previousValue, currentValue)
+      break
+    case '/':
+      result = divide(previousValue, currentValue)
+      break
+    default:
+      return
+  }
+
+  previousValue = result.toString()
+  currentValue = ''
+  operator = ''
+
+  console.log(previousValue)
+}
+
+function updateScreen() {}
 
 const add = (a, b) => a + b
 
@@ -59,6 +94,6 @@ const multiple = (a, b) => a * b
 
 const divide = (a, b) => a / b
 
-// function operate(a, b, operator) {
-//   return a + operator + b
-// }
+function operate(a, b, operator) {
+  return a + operator + b
+}
