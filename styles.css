@@ -13,9 +13,10 @@ body {
 }
 
 .container {
-  width: 200px;
+  width: 400px;
   margin: 0 auto;
-  
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .container .button:hover {
@@ -25,12 +26,14 @@ body {
 
 .row {
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
 }
 
 .button {
   display: flex;
   border: solid 1px white;
-  width: 50px;
+  width: calc(25% - 5px);
   height: 50px;
   justify-content: center;
   align-items: center;
@@ -41,7 +44,7 @@ body {
 }
 
 .span-two {
-  flex-grow: 2;
+  width: calc(50% - 5px);
 }
 
 .screen {
@@ -50,10 +53,12 @@ body {
   padding: 1px;
   width: 100%;
   background-color: grey;
-  height: 50px;
+  height: 60px;
   align-items: flex-end;
   flex-direction: column;
   justify-content: flex-end;
+  border-radius: 20px 20px 0 0;
+  margin-bottom: 5px;
 }
 
 .previous_input {
@@ -68,4 +73,31 @@ body {
   flex-direction: column;
   justify-content: center;
   
+}
+
+.operator {
+  width: calc(25% - 5px);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.header span {
+  display: inline-block;
+  font-size: 50px;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: margin 0.6s ease;
+}
+
+.header span:hover  {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.header:hover span {
+  color: #fff;
 }

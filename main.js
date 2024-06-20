@@ -13,7 +13,7 @@ let operator = ''
 buttons.forEach((button) => {
   button.addEventListener('click', (e) => {
     handleNumber(e.target.textContent)
-    currentScreen.textContent = currentValue
+    updateScreen()
   })
 })
 
@@ -24,8 +24,6 @@ function handleNumber(num) {
 operators.forEach((operate) => {
   operate.addEventListener('click', (e) => {
     handleOperator(e.target.textContent)
-    previousScreen.textContent = previousValue
-    currentScreen.textContent = currentValue
   })
 })
 
@@ -77,14 +75,17 @@ function calculate() {
       return
   }
 
-  previousValue = result.toString()
+  previousValue = result
   currentValue = ''
   operator = ''
 
   console.log(previousValue)
 }
 
-function updateScreen() {}
+function updateScreen() {
+  previousScreen.textContent = previousValue
+  currentScreen.textContent = currentValue
+}
 
 const add = (a, b) => a + b
 
@@ -92,8 +93,4 @@ const subtract = (a, b) => a - b
 
 const multiple = (a, b) => a * b
 
-const divide = (a, b) => a / b
-
-function operate(a, b, operator) {
-  return a + operator + b
-}
+const divide = (a, b) => (a /= b)
