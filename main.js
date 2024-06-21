@@ -93,4 +93,10 @@ const subtract = (a, b) => a - b
 
 const multiple = (a, b) => a * b
 
-const divide = (a, b) => (a /= b)
+const divide = (a, b) => {
+  if (b === 0) {
+    return 'lmao'
+  } else {
+    return (a /= b)
+  }
+}
